@@ -35,7 +35,19 @@ var scrabble = function(word) {
     wordScore = wordScore + lettersValue[word.charAt(i)] || 0;
   };
   return wordScore;
-
-
 };
+
+$(document).ready(function(){
+  $('form#scrabble-score').submit(function(event){
+    var word = $('input#text-from-user').val();
+    var result = scrabble(word);
+
+    $('.points').text(result);
+
+    $('#result').show();
+
+    event.preventDefault ();
+  });
+});
+
 
